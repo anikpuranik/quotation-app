@@ -4,7 +4,7 @@ FROM python:3.8
 # Create app directory
 WORKDIR /app
 
-# Install app dependencies
+# Install app dependencies files
 COPY requirements.txt ./
 RUN pip3 install -r requirements.txt
 
