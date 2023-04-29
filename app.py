@@ -13,9 +13,9 @@ def home():
 @app.route('/onepiece_quotes')
 def onepiece_quotes():
     '''Function return the quotes for the day'''
-    quotes = ("Scars On The Back Are A Swordsman's Shame. - Roronoa Zoro", 
-            "How Can We Look Any Of You In The Eyes And Say That Wano Is Safe With Us? - Kozuki Momonosuke", 
-            "The New Era Of Daring Ones Is Coming With An Unstoppable Swell!- Trafalgar D. Law", 
+    quotes = ("Scars On The Back Are A Swordsman's Shame. - Roronoa Zoro",
+            "How Can We Look Any Of You In The Eyes And Say That Wano Is Safe With Us? - Kozuki Momonosuke",
+            "The New Era Of Daring Ones Is Coming With An Unstoppable Swell!- Trafalgar D. Law",
             "People’s Dreams... Have No Ends — Marshall D. Teach",
             "One Piece Does Exist! — Edward 'Whitebeard' Newgate")
     return quotes[randint(0, len(quotes))]
