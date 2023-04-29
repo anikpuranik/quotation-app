@@ -13,7 +13,11 @@ def home():
 @app.route('/quotes')
 def quotes():
     '''Function return the quotes for the day'''
-    lis = ("Father", "Mother", "Son", "GrandFather", "GrandMother")
+    lis = ("Scars On The Back Are A Swordsman's Shame. - Roronoa Zoro", 
+            "How Can We Look Any Of You In The Eyes And Say That Wano Is Safe With Us? - Kozuki Momonosuke", 
+            "The New Era Of Daring Ones Is Coming With An Unstoppable Swell!- Trafalgar D. Law", 
+            "People’s Dreams... Have No Ends — Marshall D. Teach",
+            "One Piece Does Exist! — Edward 'Whitebeard' Newgate")
     output = lis[randint(0, len(lis))]
     print(output)
     return output
