@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from flask import Flask  
 from random import randint
+from flask import Flask
 
 app = Flask(__name__) #creating the Flask class object   
  
