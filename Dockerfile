@@ -1,5 +1,5 @@
 # Downloading the Image From Docker Registry
-FROM python:3.8-slim-buster
+FROM python:3.8
 
 # Create app directory
 WORKDIR /app
