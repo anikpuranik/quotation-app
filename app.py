@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 '''This is a demo of the quotation of the app'''
 from random import randint
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__) #creating Flask class object
 
@@ -18,13 +18,13 @@ def onepiece_quotes():
             "The New Era Of Daring Ones Is Coming With An Unstoppable Swell!- Trafalgar D. Law",
             "People’s Dreams... Have No Ends — Marshall D. Teach",
             "One Piece Does Exist! — Edward 'Whitebeard' Newgate")
-    return quotes[randint(0, len(quotes))]
+    return jsonify(quotes[randint(0, len(quotes))])
 
 @app.route('/morning_quotes')
 def morning_quotes():
     '''Quotes For Good Morning'''
     quotes = ("Good Morning!", "Have a nice day", "Good luck for today", "You will have a charming day")
-    return quotes[randint(0, len(quotes))]
+    return jsonify(quotes[randint(0, len(quotes))])
 
 if __name__ =='__main__':
     app.run(port=8000, debug = True)
