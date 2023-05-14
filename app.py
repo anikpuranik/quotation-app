@@ -18,14 +18,14 @@ def read_quote_from_file(path):
 @app.route('/onepiece_quotes.json')
 def onepiece_quotes():
     '''Function return the quotes for the day'''
-    path = '/home/asus/Desktop/python/quotation-app/db/onepiece.txt'
+    path = 'db/onepiece.txt'
     one_quotes = read_quote_from_file(path)
     return {"quote":one_quotes[randint(0, len(one_quotes))]}
 
 @app.route('/morning_quotes.json')
 def morning_quotes():
     '''Quotes For Good Morning'''
-    path = '/home/asus/Desktop/python/quotation-app/db/morning.txt'
+    path = 'db/morning.txt'
     morning_quotes = read_quote_from_file(path)    
     return {"quote":morning_quotes[randint(0, len(morning_quotes))]}
 
