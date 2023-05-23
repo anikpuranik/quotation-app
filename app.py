@@ -22,11 +22,11 @@ def onepiece_quotes():
     '''Function return the quotes for the day'''
     path = 'db/onepiece.txt'
     one_quotes = read_quote_from_file(path)
-    return {"quote":one_quotes[randint(0, len(one_quotes))]}
+    return {"quote":one_quotes[randint(0, len(one_quotes)-1)]}
 
 @app.route('/morning_quotes.json')
 def morning_quotes():
     '''Quotes For Good Morning'''
     path = 'db/morning.txt'
     morning_quotes = read_quote_from_file(path) 
-    return {"quote":morning_quotes[randint(0, len(morning_quotes))]}
+    return {"quote":morning_quotes[randint(0, len(morning_quotes)-1)]}
