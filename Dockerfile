@@ -1,5 +1,5 @@
 # Downloading the Image From Docker Registry
-FROM python:3.8
+FROM python:3.9.0-alpine
 
 # Create app directory
 WORKDIR /app
