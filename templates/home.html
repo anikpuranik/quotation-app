@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+	{% block content %}
+
+		<h1>Hello, This is flask app to test the quotes app</h1>
+		<h3>Select the category to get the quotations</h3>
+		<ul>
+			{% for category in categories %}
+			<li><a href='/{{category}}_quotes.json'>{{category}}</a></li>
+			{% endfor %}
+		</ul>
+	{% endblock %}
+
+
