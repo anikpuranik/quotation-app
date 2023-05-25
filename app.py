@@ -1,32 +1,34 @@
 #!/usr/bin/env python3
 '''This is a demo of the quotation of the app'''
-from random import randint
-from flask import Flask, url_for
+import os
+from pathlib import Path
+from flask import Flask, render_template
 
 app = Flask(__name__) #creating Flask class object
+title='Quotation'
 
 @app.route('/') #decorator defines the
 @app.route('/home')
+@app.route('/base')
+@app.route('/index')
+@app.route('/homepage')
 def home():
     '''Hmme page for the quotation-app'''
-    home_page_message = "Hello, This is flask app to test the quotes app"
-    return home_page_message
+    categories = [Path(file).stem for file in os.listdir("db")]
+    return render_template('home.html', categories=categories, title=title)
 
-def read_quote_from_file(path):
+def read_quotations_from_file(path):
     with open(path, "r") as file:
-        quote = file.read().split("\n")[:-1]
-    return quote
+        quotations = file.read().split("\n")[:-1]
+    return quotations
 
-@app.route('/onepiece_quotes.json')
-def onepiece_quotes():
-    '''Function return the quotes for the day'''
-    path = 'db/onepiece.txt'
-    one_quotes = read_quote_from_file(path)
-    return {"quote":one_quotes[randint(0, len(one_quotes)-1)]}
+@app.route('/<category>_quotes.json')
+def quotes(category):
+    '''Function return the quotes'''
+    path = f'db/{category}.txt'
+    quotations = read_quotations_from_file(path)
+    return render_template("quotes.html", category=category.upper(), 
+                            quotations=quotations, title=f'{category} quotes')
 
-@app.route('/morning_quotes.json')
-def morning_quotes():
-    '''Quotes For Good Morning'''
-    path = 'db/morning.txt'
-    morning_quotes = read_quote_from_file(path) 
-    return {"quote":morning_quotes[randint(0, len(morning_quotes)-1)]}
+if __name__ == "__main__":
+    app.run(debug=True)
