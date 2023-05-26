@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''This is a demo of the quotation of the app'''
 import os
+import json
 from pathlib import Path
 from flask import Flask, render_template
 
@@ -19,13 +20,13 @@ def home():
 
 def read_quotations_from_file(path):
     with open(path, "r") as file:
-        quotations = file.read().split("\n")[:-1]
+        quotations = json.load(file)
     return quotations
 
 @app.route('/<category>_quotes.json')
 def quotes(category):
     '''Function return the quotes'''
-    path = f'db/{category}.txt'
+    path = f'db/{category}.json'
     quotations = read_quotations_from_file(path)
     return render_template("quotes.html", category=category.upper(), 
                             quotations=quotations, title=f'{category} quotes')

@@ -2,9 +2,14 @@
 
         {% block content %}
 	<h3>{{category}} QUOTES</h3>
-		<ul>
-			{% for quote in quotations %}
-			<li>{{quote}}</li>
+		<ol>
+			{% for character,character_quotes in quotations.items() %}
+			<li>{{character}}</li>
+			<ul>
+				{% for quotes in character_quotes %}
+				<li>{{quotes}}</li>
+				{% endfor %}
+			</ul>
 			{% endfor %}
-		</ul>
+		</ol>
 	{% endblock %}
