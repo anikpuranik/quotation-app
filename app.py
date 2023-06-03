@@ -8,7 +8,7 @@ app = Flask(__name__) #creating Flask class object
 @app.route('/') #decorator defines the
 def home():
     '''Hmme page for the quotation-app'''
-    return "Hello, This is flask app to test the quotes app"
+    return "Hello, This is flask app for the quotations"
 
 @app.route('/onepiece_quotes.json')
 def onepiece_quotes():
