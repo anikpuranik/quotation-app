@@ -18,13 +18,13 @@ def onepiece_quotes():
             "The New Era Of Daring Ones Is Coming With An Unstoppable Swell!- Trafalgar D. Law",
             "People’s Dreams... Have No Ends — Marshall D. Teach",
             "One Piece Does Exist! — Edward 'Whitebeard' Newgate")
-    return {"quote":one_quotes[randint(0, len(one_quotes))]}
+    return {"quote":one_quotes}
 
 @app.route('/morning_quotes.json')
 def morning_quotes():
     '''Quotes For Good Morning'''
     morning_quotes = ("Good Morning!", "Have a nice day", "Good luck for today", "You will have a charming day")
-    return {"quote":morning_quotes[randint(0, len(morning_quotes))]}
+    return {"quote":morning_quotes}
 
 if __name__ =='__main__':
     app.run(port=8000, debug = True)
