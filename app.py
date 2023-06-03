@@ -18,7 +18,7 @@ title='Quotation'
 def home():
     '''Hmme page for the quotation-app'''
     categories = [Path(file).stem for file in os.listdir("db")]
-    return categories
+    return {"categories": categories}
 
 @app.route('/<category>_quotes.json')
 def quotes(category):
