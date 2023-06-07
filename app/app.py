@@ -11,13 +11,16 @@ app = Flask(__name__) #creating Flask class object
 @app.route('/') #decorator defines the
 @app.route('/home')
 def home():
-    '''Hmme page for the quotation-app'''
     categories = f.get_all_categories()
     return {"categories": categories}
 
+@app.route('/<series>_quotes.json')
+def series_data(series):
+    quotes = f.get_all_characters_by_series(series)
+    return {"series": series}
+
 @app.route('/<character>_quotes.json')
-def quotes(character):
-    '''Function return the quotes'''
+def character_data(character):
     quotes = f.get_quotes_by_character(character)
     return {"quotes": quotes}
 

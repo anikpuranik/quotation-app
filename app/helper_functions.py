@@ -20,11 +20,16 @@ def read_quotations_from_file(path):
     return quotations
 
 def get_all_categories():
-    curr.execute("SELECT DISTINCT(Character_Name) FROM onepiece ORDER BY Character_Name;")
-    members = curr.fetchall()
-    return format_query_series(members)
+    curr.execute("SELECT category FROM categories;")
+    query = curr.fetchall()
+    return format_query_series(query)
+
+def get_all_characters_by_series(series):
+    curr.execute(f"SELECT DISTINCT(Character_Name) FROM {series} ORDER BY Character_Name;")
+    query = curr.fetchall()
+    return format_query_series(query)
 
 def get_quotes_by_character(character):
-    curr.execute(f"SELECT quotes FROM onepiece WHERE Character_Name = '{character}'")
-    quotes = curr.fetchall()
-    return format_query_series(quotes)
+    curr.execute(f"SELECT quotes FROM anime_quotes WHERE Character_Name = '{character}'")
+    query = curr.fetchall()
+    return format_query_series(query)

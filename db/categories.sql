@@ -2,6 +2,5 @@ CREATE TABLE categories (
 	category TEXT
 );
 
-INSERT INTO morning (category) VALUES ("Morning");
-INSERT INTO morning (category) VALUES ("Onepiece");
-INSERT INTO morning (category) VALUES ("Death Note");
+INSERT INTO categories (category) VALUES ("Morning_quotes");
+INSERT INTO categories (category) VALUES ("Anime_quotes");
