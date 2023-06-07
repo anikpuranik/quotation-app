@@ -13,8 +13,6 @@ title='Quotation'
 
 @app.route('/') #decorator defines the
 @app.route('/home')
-@app.route('/index')
-@app.route('/homepage')
 def home():
     '''Hmme page for the quotation-app'''
     categories = [Path(file).stem for file in os.listdir("db")]
