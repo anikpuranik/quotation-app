@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 '''This is a demo of the quotation of the app'''
 import os
-import json
-from pathlib import Path
 from flask import Flask
 
 # Importing Modules
@@ -14,15 +12,14 @@ app = Flask(__name__) #creating Flask class object
 @app.route('/home')
 def home():
     '''Hmme page for the quotation-app'''
-    categories = [Path(file).stem for file in os.listdir("db")]
+    categories = f.get_all_categories()
     return {"categories": categories}
 
-@app.route('/<category>_quotes.json')
-def quotes(category):
+@app.route('/<character>_quotes.json')
+def quotes(character):
     '''Function return the quotes'''
-    path = f'db/{category}.json'
-    quotations = f.read_quotations_from_file(path)
-    return quotations
+    quotes = f.get_quotes_by_character(character)
+    return {"quotes": quotes}
 
 if __name__ == "__main__":
     app.run(debug=True)
