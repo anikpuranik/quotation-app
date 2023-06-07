@@ -9,7 +9,6 @@ from flask import Flask
 import helper_functions as f
 
 app = Flask(__name__) #creating Flask class object
-title='Quotation'
 
 @app.route('/') #decorator defines the
 @app.route('/home')
