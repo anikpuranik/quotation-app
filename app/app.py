@@ -4,7 +4,7 @@ import os
 from flask import Flask
 
 # Importing Modules
-import app.helper_functions as f
+import helper_functions as f
 
 app = Flask(__name__) #creating Flask class object
 

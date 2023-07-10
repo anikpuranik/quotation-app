@@ -1,7 +1,7 @@
 CREATE TABLE anime_quotes (
 	Series_Name TEXT,
 	Character_Name TEXT,
-	Quote TEXT,
+	Quote TEXT
 );
 
 INSERT INTO anime_quotes (Series_Name, Character_Name, Quote) 

@@ -16,7 +16,7 @@ services:
     build:
       context: db/.
     env_file:
-      - env/.env-db
+      - env/.env_db
     ports:
       - 5432:5432
     volumes:
