@@ -2,8 +2,6 @@ version: "3"
 
 services:
   app:
-    depends_on:
-      - db
     build: 
       context: app/.
     env_file:
@@ -12,15 +10,3 @@ services:
       - 5000:5000
     volumes:
       - .:/app
-  db:
-    build:
-      context: db/.
-    env_file:
-      - env/.env_db
-    ports:
-      - 5432:5432
-    volumes:
-      - todo-data:/var/lib/postgres
-
-volumes:
-  todo-data:

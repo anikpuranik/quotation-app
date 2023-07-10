@@ -5,10 +5,6 @@ import re
 import json
 import psycopg2
 
-conn = psycopg2.connect(user=os.getenv("POSTGRES_USER"), password=os.getenv("POSTGRES_PASSWORD"), 
-                        host=os.getenv("POSTGRES_HOST"), port=os.getenv("POSTGRES_PORT"))
-curr = conn.cursor()
-
 def format_query_series(query_output):
     output_list = []
     for output in query_output:
