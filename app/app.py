@@ -8,22 +8,27 @@ import helper_functions as f
 
 app = Flask(__name__) #creating Flask class object
 path = 'db'
-'''
+
 @app.route('/') #decorator defines the
 @app.route('/home')
 def home():
-    categories = f.get_all_categories()
+    categories = f.get_all_json_files('db')
     return {"categories": categories}
-'''
+
 @app.route('/web')
 @app.route('/homeweb')
 def web_home():
     all_list = f.get_all_json_files('db')
     return render_template("home.html", all_list=all_list)
 
+@app.route('/<category>_web')
+def fun(category):
+    quotes = f.read_quotations_from_file(path+f"/{category}.json")
+    return quotes
+
 @app.route('/<category>')
 def web_fun(category):
-    quotes = f.read_quotations_from_file(path+f"/{category}")
+    quotes = f.read_quotations_from_file(path+f"/{category}.json")
     return render_template("home.html", quotes=quotes)
 
 if __name__ == "__main__":

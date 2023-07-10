@@ -22,7 +22,7 @@ def read_quotations_from_file(path):
 
 def get_all_json_files(path):
     #return os.listdir(path)
-    return [file for file in os.listdir(path) if re.search(".json", file)]
+    return [file[:-5] for file in os.listdir(path) if re.search(".json", file)]
 
 def get_table_level(category):
     curr.execute(f"SELECT Table_Level FROM all_tables_details WHERE Table_Name='{category}';")
