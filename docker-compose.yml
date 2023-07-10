@@ -21,6 +21,6 @@ services:
       - 5432:5432
     volumes:
       - todo-data:/var/lib/postgres
-    
+
 volumes:
   todo-data:

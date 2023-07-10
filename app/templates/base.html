@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% if title %}
+            <title>{{title}}</title>
+        {% else %}
+            <title>quotation-app</title>
+            {% endif %}
+        <h1> Welcome to the Home Page of Quotation Practice Webpage</h1>
+    </head>
+    <body>
+        <h3> List all types of quotes</h3>
+        {% block content %}{% endblock %}
+    </body>
+</html>

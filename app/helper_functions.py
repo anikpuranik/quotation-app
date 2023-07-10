@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Importing modules
 import os
+import re
 import json
 import psycopg2
 
@@ -19,17 +20,48 @@ def read_quotations_from_file(path):
         quotations = json.load(file)
     return quotations
 
-def get_all_categories():
-    curr.execute("SELECT category FROM categories;")
+def get_all_json_files(path):
+    #return os.listdir(path)
+    return [file for file in os.listdir(path) if re.search(".json", file)]
+
+def get_table_level(category):
+    curr.execute(f"SELECT Table_Level FROM all_tables_details WHERE Table_Name='{category}';")
+    query = curr.fetchall()
+    print(query)
+    return format_query_series(query)
+
+def get_quotes(table):
+    curr.execute(f"SELECT QUOTE FROM {table};")
+    query = curr.fetchone()
+    return format_query_series(query)
+
+def get_all_anime():
+    curr.execute("SELECT DISTINCT(Series_Name) FROM anime_quotes;")
     query = curr.fetchall()
     return format_query_series(query)
 
 def get_all_characters_by_series(series):
-    curr.execute(f"SELECT DISTINCT(Character_Name) FROM {series} ORDER BY Character_Name;")
+    curr.execute(f"SELECT DISTINCT(Character_Name) FROM anime_quotes WHERE Series_Name = '{series}';")
     query = curr.fetchall()
     return format_query_series(query)
 
-def get_quotes_by_character(character):
-    curr.execute(f"SELECT quotes FROM anime_quotes WHERE Character_Name = '{character}'")
+def get_quotes_by_character(series, character):
+    curr.execute(f"SELECT Quote FROM anime_quotes WHERE Series_name = '{series}' AND Character_Name = '{character}';")
     query = curr.fetchall()
     return format_query_series(query)
+
+def get_quotes(table, clauses=''):
+    if clauses:
+        curr.execute(f"SELECT Quotes FROM {table} WHERE {clauses};")
+    else:
+        curr.execute(f"SELECT Quote FROM {table};")
+    query = curr.fetchall()
+    return format_query_series(query)
+
+def can_get_quotes(category):
+    if category == "morning_quotes":
+        return True
+    return False
+        
+
+

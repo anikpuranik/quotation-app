@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+    {% block content %}
+        <ul>
+            {% for category in all_list %}
+                <li><a href='/{{category}}'>{{category}}</a></li>
+            {% endfor %}
+
+            {% for quote_giver in quotes %}
+                {% if 'Characters' != quote_giver %}
+                    <li>{{quote_giver}}</li>
+                        <ul>
+                        {% for quote in quotes[quote_giver] %}
+                            <li>{{quote}}</li>
+                     {% endfor %}
+                     </ul>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endblock %}
