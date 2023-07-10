@@ -42,7 +42,11 @@
         "Nothing… Happened."
     ],
     "Nami":[
-        "What good is a treasure if I am alone?"
+        "What good is a treasure if I am alone?",
+	"Nobody challenges Luffy and survives!",
+	"I'll have mapped out the entire world!",
+	"Life is like a pencil that will surely run out, but will leave the beautiful writing of life.",
+	
     ],
     "Usopp":[
         "There comes a time when a man has to stand and fight! That time is when his friends' dreams are being laughed at! And I won't let you laugh at that!",
@@ -56,7 +60,9 @@
         "I know the Marines dont give a damn about me… But soon enough the man who will be most feared by the marines will be me…"
     ],
     "Chopper":[
-        "I don't care now. I wanted to look like a human because I wanted friends. Now I want to be a monster who's helpful to Luffy!"
+        "I don't care now. I wanted to look like a human because I wanted friends. Now I want to be a monster who's helpful to Luffy!",
+	"My name is Tony Tony Chopper! It was given to me by the greatest doctor in the world!",
+	"Nothing is impossible for a man with a skull flag! Isn't that right? Doctor!"
     ],
     "Robin":[
         "Sometimes the only thing you have to doubt is your own common sense.",
@@ -64,7 +70,9 @@
         "Before the heart of truth, there is no need for words."
     ],
     "Franky":[
-        "The government says your existence is a crime, but no matter what kind of weapons you may hold, just being alive isn't a sin! There's no crime in living!"
+        "The government says your existence is a crime, but no matter what kind of weapons you may hold, just being alive isn't a sin! There's no crime in living!",
+	"How can I love the ships I've have made when they hurt the people really important to me?||",
+	"It'd be so pity for such a magnificient ship not to have a shipwright. I guess I don't have much choice but to help you."
     ],
     "Brook":[
         "No matter how deep the night, it always turns to day, eventually.",
@@ -112,6 +120,7 @@
     ],
     "Others":[
         "Even if armed with hundreds of weapons… there are times when you just can't beat a man with a spear of conviction in his gut. – Red-leg Zeff",
+	"",
         "No one is born into this world to be alone. – Jaguar D. Saul",
         "I'll die smiling! Because if you ever think of me in the future, I want you to remember me smiling. – Donquixote Rosinante",
         "We shouldn't worry about being able to achieve our dreams, as long as we have the desire to do it. – Coby",
